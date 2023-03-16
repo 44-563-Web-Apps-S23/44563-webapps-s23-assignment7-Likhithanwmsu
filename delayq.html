@@ -54,29 +54,23 @@
     </body>
 <script>
 	function makeNewDiv(){
-		/* make the div and its text */
         var textval=document.getElementById('inputval').value;
 		let element = document.createElement("div");
 		element.innerHTML = textval;
 		element.style.color = "Green";
         element.className="delayQ";
-		/* add it to the container */
 		let container = document.getElementById('target');
-		container.appendChild(element);
-		
+		container.appendChild(element);		
 	}
     function get(){
-		/* make the div and its text */
         var queueItems=document.getElementsByClassName("delayQ");
         console.log('queueItems',queueItems.length);
 		if(queueItems.length>0){
             queueItems[0].remove();
         }
-        console.log('queueItems',queueItems.length);
-		
+        console.log('queueItems',queueItems.length);		
 	}
     function delay(){
-		/* make the div and its text */
         var queueItems=document.getElementsByClassName("delayQ");
         var removedId;
 		if(queueItems.length!=0 ||queueItems.length!=1){
@@ -84,19 +78,7 @@
             queueItems[0].remove();
             let container = document.getElementById('target');
 		container.appendChild(removedId);
-        }
-		
-	}
-	
-    function promote(){
-            let queueItems = document.getElementsByClassName("delayQ")
-            let length_elements = queueItems.length
-            let num = Math.floor(Math.random()* length_elements)
-            let randNum = queueItems[num]
-			randNum.parentNode.insertBefore(randNum,randNum.parentNode.firstChild)
-
-		
-	}
-
+        }		
+	}	
 </script>
 </html>	
