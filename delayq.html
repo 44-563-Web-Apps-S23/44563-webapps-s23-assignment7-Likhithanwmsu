@@ -26,56 +26,68 @@
 
 
 <body>
-    <h2>Likhitha Maheswari Chebrolu builds a delaying queue</h2>
-    <label for="input">Enter the name of item here: </label>
-        <input type = "text" id = "input">
-		<div class="flex-container" id="target">
-		  <div class = "delayQ">row item 1</div>   
-		  <div class = "delayQ">row item 2</div>  
-		  <div class = "delayQ">row item 3</div>  
-		</div>
-	
-	<p> Press the button to create an new element of type div and then add it to the container.
-		</p>
-		<button class = "btn" onclick="makeNewDiv()">Add Value</button><br>
-        <input class="btn" type="button" value="Get" onclick="get()">
-	    <input class = "btn" type="button" value="Delay" onclick = "delay()">
-        <input class = "btn" type="button" value="Promote" onclick = "promote()">
+    <div class="container">
+        <h1>Likhitha Maheswari Chebrolu builds a delaying queue</h1>
+            <div class="well">
+            <form >
+                <div class="form-floating mb-3 mt-3">
+                    
+                    <label for="email">Input:</label>
+                    <input type="text" class="form-control" id="inputval" placeholder="Enter Input" name="Input">
+                  </div><br><br>
+            
+              </form></div>
+            <div class="flex-container bg-secondary" id="target">
+              <div class="delayQ">row item 1</div>   
+              <div class="delayQ">row item 2</div>  
+              <div class="delayQ">row item 3</div>  
+            </div>
         
-	
-	
-</body>
+        <p> Press the button to create an new element of type div and then add it to the container.
+            </p>
+            <button class="btn btn-dark" onclick="makeNewDiv()">Add value</button>
+            <button class="btn btn-primary" onclick="get()">Get</button>
+            <button class="btn btn-info" onclick="delay()">Delay</button>
+            
+        
+        
+    </body>
 <script>
 	function makeNewDiv(){
 		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
-
+        var textval=document.getElementById('inputval').value;
+		let element = document.createElement("div");
+		element.innerHTML = textval;
+		element.style.color = "Green";
+        element.className="delayQ";
 		/* add it to the container */
-		let container = document.getElementById('target')
-		container.appendChild(element)
-        function get(){
-			let queueItems = document.getElementsByClassName("delayQ")
-			console.log(queueItems)
-			let length_elements = queueItems.length
-			if (length_elements>0){
-				queueItems[length_elements-1].remove()
-			}
+		let container = document.getElementById('target');
+		container.appendChild(element);
+		
 	}
-	function delay(){
-			let queueItems = document.getElementsByClassName("delayQ")
-			let length_elements = queueItems.length
-			if(length_elements==0 || length_elements==1){
-				console.log("Not enough elements to delay")
-			}else{
-				let removedItem = queueItems[length_elements-1]
-				queueItems[length_elements-1].remove()
-				console.log(removedItem)
-				let container_div = document.getElementById("target")
-				container_div.insertBefore(removedItem,container_div.firstChild)
-			}
+    function get(){
+		/* make the div and its text */
+        var queueItems=document.getElementsByClassName("delayQ");
+        console.log('queueItems',queueItems.length);
+		if(queueItems.length>0){
+            queueItems[0].remove();
+        }
+        console.log('queueItems',queueItems.length);
+		
 	}
+    function delay(){
+		/* make the div and its text */
+        var queueItems=document.getElementsByClassName("delayQ");
+        var removedId;
+		if(queueItems.length!=0 ||queueItems.length!=1){
+            removedId=queueItems[0];
+            queueItems[0].remove();
+            let container = document.getElementById('target');
+		container.appendChild(removedId);
+        }
+		
+	}
+	
     function promote(){
             let queueItems = document.getElementsByClassName("delayQ")
             let length_elements = queueItems.length
@@ -85,6 +97,6 @@
 
 		
 	}
-}
+
 </script>
 </html>	
