@@ -64,16 +64,16 @@
 	}
     function get(){
         var queueItems=document.getElementsByClassName("delayQ");
-        console.log('queueItems',queueItems.lgth);
-		if(queueItems.lgth>0){
+        console.log('queueItems',queueItems.length);
+		if(queueItems.length>0){
             queueItems[0].remove();
         }
-        console.log('queueItems',queueItems.lgth);		
+        console.log('queueItems',queueItems.length);		
 	}
     function delay(){
         var queueItems=document.getElementsByClassName("delayQ");
         var removedId;
-		if(queueItems.lgth!=0 ||queueItems.lgth!=1){
+		if(queueItems.length!=0 ||queueItems.length!=1){
             removedId=queueItems[0];
             queueItems[0].remove();
             let container = document.getElementById('target');
